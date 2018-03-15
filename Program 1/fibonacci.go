@@ -1,29 +1,26 @@
 package main
 
+/**
+  Recursive Fibonacci program to calculate the nth Fibonacci number. f[n-1] + f[n-2]
+**/
 import (
 	"fmt"
 	"time"
 )
-
-/**
-  Recursive Fibonacci program to calculate the nth Fibonacci number. f[n-1] + f[n-2]
-**/
 
 /* Recursive Fibonacci function */
 func fib(n int) int {
 	if n == 0 {
 		return 0
 	}
-
 	if n == 1 {
 		return 1
 	}
-
 	return fib(n-1) + fib(n-2)
 }
 
+/* Main routine to run Fibonacci program */
 func main() {
-
 	fmt.Print("* * * Fibonacci Printer * * *\n\n")
 	fmt.Print("Which Fibonacci number would you like to see?: ")
 	var fibNum int
