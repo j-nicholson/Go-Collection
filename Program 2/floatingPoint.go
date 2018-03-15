@@ -1,6 +1,8 @@
 package main
 
-/* Program to alter a list of floating point numbers */
+/**
+	Program to alter a list of floating point numbers
+**/
 import (
 	"fmt"
 	"strconv"
@@ -27,6 +29,7 @@ func containsNum(s string) bool {
 	return false
 }
 
+/* Main routine to run Floating Point program */
 func main() {
 	end := false
 	var floatingSlice []float64
@@ -39,9 +42,11 @@ func main() {
 		fmt.Scanf("%s %s", &command, &item)
 
 		switch command {
+
 		// Insert command option
 		case "Insert":
 			if containsNum(item) {
+				// Conversion requires that a form of exception handling is implemented
 				item, err := strconv.ParseFloat(item, 64)
 				floatingSlice = append(floatingSlice, item)
 				fmt.Printf("\nThe array currently contains: \n")
@@ -52,7 +57,8 @@ func main() {
 			} else {
 				fmt.Print("\nInvalid option: please choose [Insert, Delete, Sum, End]")
 			}
-			// Delete command option
+
+		// Delete command option
 		case "Delete":
 			if containsNum(item) {
 				item, err := strconv.ParseFloat(item, 64)
@@ -73,18 +79,21 @@ func main() {
 			} else {
 				fmt.Print("\nInvalid option: please choose [Insert, Delete, Sum, End]")
 			}
-			// Sum command option
+
+		// Sum command option
 		case "Sum":
 			var sum float64
 			for i := 0; i < len(floatingSlice); i++ {
 				sum += floatingSlice[i]
 			}
 			fmt.Printf("\nThe total is %.1f\n", sum)
-			// End command option
+
+		// End command option
 		case "End":
 			end = true
 			fmt.Print("\n* * * Floating point program ended * * *\n")
-			// Default option
+
+		// Default option
 		default:
 			fmt.Print("\nInvalid option: please choose [Insert, Delete, Sum, End]")
 		}
