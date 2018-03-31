@@ -48,12 +48,14 @@ func main() {
 			if containsNum(item) {
 				// Conversion requires that a form of exception handling is implemented
 				item, err := strconv.ParseFloat(item, 64)
+				if err != nil {
+					fmt.Print(err)
+				}
 				floatingSlice = append(floatingSlice, item)
 				fmt.Printf("\nThe array currently contains: \n")
 				for i := 0; i < len(floatingSlice); i++ {
 					fmt.Printf("Values[%d] = %.5f\n", i, floatingSlice[i])
 				}
-				fmt.Print(err)
 			} else {
 				fmt.Print("\nInvalid option: please choose [Insert, Delete, Sum, End]")
 			}
@@ -62,6 +64,9 @@ func main() {
 		case "Delete":
 			if containsNum(item) {
 				item, err := strconv.ParseFloat(item, 64)
+				if err != nil {
+					fmt.Print(err)
+				}
 				if contains(floatingSlice, item) {
 					fmt.Printf("\nThe array currently contains: \n")
 					for i := 0; i < len(floatingSlice); i++ {
@@ -72,7 +77,6 @@ func main() {
 					for i := range floatingSlice {
 						fmt.Printf("Values[%d] = %.5f\n", i, floatingSlice[i])
 					}
-					fmt.Print(err)
 				} else {
 					fmt.Printf("\nThat number was not in the list.\n")
 				}
