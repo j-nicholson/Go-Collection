@@ -184,8 +184,6 @@ func main() {
 			totalTmax := 0
 			tMaxAverage := 0
 			var tMaxDate int
-			tMaxStation := ""
-			tMaxLocation := ""
 
 			sort.Slice(weatherInfo, func(i int, j int) bool {
 				return weatherInfo[i].yearMonthDay < weatherInfo[j].yearMonthDay
@@ -198,15 +196,13 @@ func main() {
 						tMaxAverage = totalTmax / numberOfStations
 						tMaxDate = weatherInfo[i].yearMonthDay
 						convertedDate = dateConversion(tMaxDate)
-						tMaxStation = weatherInfo[i].station
-						tMaxLocation = weatherInfo[i].location
 					}
 					currentMaximumStation = 0
 					totalTmax = 0
 				}
 				currentMaximumStation++
 			}
-			fmt.Printf("The hottest day in Pennsylvania in August %d was %d on %s at %s in %s.\n", year, tMaxAverage, convertedDate, tMaxLocation, tMaxStation)
+			fmt.Printf("The hottest day in Pennsylvania in August %d was %d on %s.\n", year, tMaxAverage, convertedDate)
 
 			// Find the coldest day
 			fmt.Printf("\n5. What was the coldest day in Pennsylvania in August %d?\n", year)
@@ -214,8 +210,6 @@ func main() {
 			totalTmin := 0
 			tMinAverage := 100000000
 			var tMinDate int
-			tMinStation := ""
-			tMinLocation := ""
 
 			for i := range weatherInfo {
 				totalTmin += weatherInfo[i].tMin
@@ -224,15 +218,13 @@ func main() {
 						tMinAverage = totalTmin / numberOfStations
 						tMinDate = weatherInfo[i].yearMonthDay
 						convertedDate = dateConversion(tMinDate)
-						tMinStation = weatherInfo[i].station
-						tMinLocation = weatherInfo[i].location
 					}
 					currentMinimumStation = 0
 					totalTmin = 0
 				}
 				currentMinimumStation++
 			}
-			fmt.Printf("The coldest day in Pennsylvania in August %d was %d on %s at %s in %s.\n", year, tMinAverage, convertedDate, tMinLocation, tMinStation)
+			fmt.Printf("The coldest day in Pennsylvania in August %d was %d on %s.\n", year, tMinAverage, convertedDate)
 
 			break
 		}
